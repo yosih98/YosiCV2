@@ -53,30 +53,6 @@
             background: #1abc9c;
             color: #fff;
         }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #34495e;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        .dropdown-content a {
-            color: #fff;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content a:hover {
-            background-color: #1abc9c;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -303,154 +279,183 @@
             background-color: #555;
             color: #fff;
             text-align: center;
-            border-radius: 6px;
-            padding: 5px;
+            border-radius: 5px;
+            padding: 5px 0;
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Position above the text */
+            bottom: 125%; /* Position the tooltip above the text */
             left: 50%;
             margin-left: -60px;
             opacity: 0;
             transition: opacity 0.3s;
         }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
         .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
+        }
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1abc9c;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .floating-button:hover {
+            background-color: #16a085;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Yosi H.S Alsafadi</h1>
-        <p>GIS & RS スペシャリスト</p>
+        <p>GIS & RS スペシャリスト | データアナリスト | デジタル通貨エンスージアスト</p>
     </header>
-    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav>
-        <a href="#profile">プロフィール</a>
-        <a href="#education">教育</a>
-        <a href="#experience">経験</a>
+        <a href="#about">概要</a>
+        <a href="#education">学歴</a>
+        <a href="#experience">職歴</a>
+        <a href="#skills">スキル</a>
+        <a href="#additional-notes">追加の注記</a>
         <a href="#languages">言語</a>
         <a href="#hobbies">趣味</a>
         <a href="#contact">連絡先</a>
-        <div class="dropdown">
-            <a href="#more">もっと <i class="fas fa-caret-down"></i></a>
-            <div class="dropdown-content">
-                <a href="#projects">プロジェクト</a>
-                <a href="#publications">出版物</a>
-                <a href="#certificates">証明書</a>
-            </div>
-        </div>
     </nav>
     <div class="container">
-        <section id="profile" class="section profile">
-            <img src="https://via.placeholder.com/150" alt="Yosi H.S Alsafadi">
-            <h2>Yosi H.S Alsafadi</h2>
-            <p>GIS & RS スペシャリスト</p>
+        <section id="about" class="section">
+            <div class="profile">
+                <img src="DSC_1501 1.4in x 2in.jpg" alt="Yosi H.S Alsafadi">
+                <div>
+                    <h2>概要</h2>
+                    <p>私は、データ分析、デジタル通貨取引、および学術研究の豊富な経験を持つ専念的なGISおよびリモートセンシングのスペシャリストです。新しい技術を学び続け、プロフェッショナルスキルを継続的に開発することに強い情熱を持っています。</p>
+                </div>
+            </div>
+            <div class="personal-details">
+                <p><strong>生年月日:</strong> 1998年2月21日</p>
+                <p><strong>社会的地位:</strong> 独身</p>
+                <p><strong>居住情報:</strong> パレスチナ出身、現在マレーシアに居住、家族はベルギーに居住。</p>
+            </div>
         </section>
         <section id="education" class="section">
-            <h2>教育</h2>
+            <h2>学歴</h2>
             <div class="details-grid">
                 <div>
-                    <h3>PhD in Remote Sensing and GIS</h3>
-                    <p>University Sains Islam Malaysia, 現在在学中</p>
+                    <h3>コンピュータサイエンスおよび人工知能を含むGISおよびRSの博士課程</h3>
+                    <p>USIM (2022年3月 – 現在)</p>
                 </div>
                 <div>
-                    <h3>Master's in GIS</h3>
-                    <p>Islamic University - Gaza, 2020</p>
+                    <h3>GISおよびRSの修士</h3>
+                    <p>IUG (2019年9月 – 2021年9月)</p>
                 </div>
                 <div>
-                    <h3>Bachelor's in GIS</h3>
-                    <p>Islamic University - Gaza, 2018</p>
+                    <h3>GISおよびRSの学士</h3>
+                    <p>IUG (2015年9月 – 2019年3月)</p>
+                </div>
+                <div>
+                    <h3>追加の学習</h3>
+                    <p>トレーニングコース中にデジタル通貨を副専攻として学ぶ</p>
                 </div>
             </div>
         </section>
         <section id="experience" class="section">
-            <h2>経験</h2>
+            <h2>職歴</h2>
             <div class="details-grid">
                 <div>
-                    <h3>Teaching Assistant</h3>
-                    <p>Islamic University - Gaza</p>
+                    <h3>ティーチングアシスタント</h3>
+                    <p>GISおよびRS学部、IUG (2019年3月 – 2020年3月)</p>
+                </div>
+                <div>
+                    <h3>講師</h3>
+                    <p>GISおよびRS学部、IUG (2020年4月 – 2022年5月)</p>
+                </div>
+                <div>
+                    <h3>GISおよびRSアナリスト</h3>
+                    <p>地方自治省 (2019年1月 – 2022年5月)</p>
+                </div>
+                <div>
+                    <h3>ドローンおよび衛星画像のアナリストおよびプロセッサー</h3>
+                    <p>Sky Pixel社 (2018年1月 – 2022年5月)</p>
+                </div>
+                <div>
+                    <h3>データアナリストおよび管理者</h3>
+                    <p>民間セクター (2022年3月 – 現在)</p>
+                </div>
+                <div>
+                    <h3>デジタル通貨トレーダーおよびマネージャー</h3>
+                    <p>独立 (2022年3月 – 現在)</p>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="section">
+            <h2>スキル</h2>
+            <div class="details-grid">
+                <div>
+                    <h3>技術スキル</h3>
                     <ul>
-                        <li>GISとRSの講義</li>
-                        <li>学生のサポートと指導</li>
+                        <li>GISおよびRSプログラムの使用</li>
+                        <li>デジタル通貨および取引</li>
+                        <li>GISおよびRSのプログラミング</li>
+                        <li>Microsoft Office Suite (Excel, Word, PowerPoint)</li>
+                        <li>基本的なデザインプログラム</li>
+                        <li>空中画像ソフトウェアの利用</li>
+                        <li>地理データベースの管理</li>
+                        <li>データの収集および分析</li>
                     </ul>
                 </div>
                 <div>
-                    <h3>GIS/RS Analyst</h3>
-                    <p>Private Sector</p>
+                    <h3>個人のスキル</h3>
                     <ul>
-                        <li>データ分析とマッピング</li>
-                        <li>プロジェクト管理</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Online Data Analyst</h3>
-                    <p>Freelance</p>
-                    <ul>
-                        <li>データ収集と分析</li>
-                        <li>レポート作成</li>
+                        <li>分析および意思決定能力</li>
+                        <li>独立して、またはチームの一員として働く能力</li>
+                        <li>レポートおよび科学研究の執筆</li>
+                        <li>新しいことを迅速かつ効率的に学ぶ強い意欲</li>
+                        <li>継続的な個人および専門的な発展へのコミットメント</li>
                     </ul>
                 </div>
             </div>
         </section>
-        <section id="projects" class="section">
-            <h2>プロジェクト</h2>
+        <section id="additional-notes" class="section">
+            <h2>追加の注記</h2>
             <div class="details-grid">
                 <div>
-                    <h3>Project Title 1</h3>
-                    <p>詳細な説明と成果</p>
-                </div>
-                <div>
-                    <h3>Project Title 2</h3>
-                    <p>詳細な説明と成果</p>
-                </div>
-                <div>
-                    <h3>Project Title 3</h3>
-                    <p>詳細な説明と成果</p>
-                </div>
-            </div>
-        </section>
-        <section id="publications" class="section">
-            <h2>出版物</h2>
-            <div class="details-grid">
-                <div>
-                    <h3>Publication Title 1</h3>
-                    <p>ジャーナル名、発行日</p>
-                </div>
-                <div>
-                    <h3>Publication Title 2</h3>
-                    <p>ジャーナル名、発行日</p>
-                </div>
-                <div>
-                    <h3>Publication Title 3</h3>
-                    <p>ジャーナル名、発行日</p>
-                </div>
-            </div>
-        </section>
-        <section id="certificates" class="section">
-            <h2>証明書</h2>
-            <div class="details-grid">
-                <div>
-                    <h3>Certificate Title 1</h3>
-                    <p>発行機関、発行日</p>
-                </div>
-                <div>
-                    <h3>Certificate Title 2</h3>
-                    <p>発行機関、発行日</p>
-                </div>
-                <div>
-                    <h3>Certificate Title 3</h3>
-                    <p>発行機関、発行日</p>
+                    <p>新しいことを学ぶことに熱心で、迅速に学ぶ</p>
+                    <p>学習と成長の機会を提供するあらゆる分野で働く意欲がある</p>
+                    <p>日本語を学ぶことに興味がある</p>
+                    <p>デジタル通貨の取引における実践的な経験</p>
+                    <p>給与よりも新しい環境での経験と学習を優先し、日本の生活水準に応じた給与を求める</p>
+                    <p>高度に適応可能であり、グラフィックデザイン、デジタルマーケティング、データ管理、プロジェクト管理などの主な専門分野以外の分野のさまざまな仕事の要件に必要な新しいスキルを迅速に習得できる</p>
+                    <p>強力な分析スキル、細部への注意、独立しておよびチーム内で働く能力で知られている</p>
+                    <p>自身の分野および関連分野の進歩の最前線に立ち続けるために、継続的な個人および専門的な発展にコミットしている</p>
                 </div>
             </div>
         </section>
         <section id="languages" class="section">
             <h2>言語</h2>
             <div class="languages">
-                <div><p>アラビア語</p></div>
-                <div><p>英語</p></div>
-                <div><p>ヘブライ語</p></div>
-                <div><p>日本語</p></div>
+                <div>
+                    <p><i class="fas fa-star"></i> アラビア語</p>
+                    <p><i class="fas fa-star"></i> 英語</p>
+                    <p><i class="fas fa-star"></i> ヘブライ語</p>
+                </div>
             </div>
         </section>
         <section id="hobbies" class="section">
