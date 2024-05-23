@@ -246,6 +246,20 @@
         .dark-mode .details-grid ul {
             color: #fff;
         }
+        .dark-mode .timeline-content {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+        .dark-mode .timeline-container::after {
+            background-color: #1abc9c;
+            border-color: #2c3e50;
+        }
+        .dark-mode .timeline-container.left::before {
+            border-color: transparent transparent transparent #2c3e50;
+        }
+        .dark-mode .timeline-container.right::before {
+            border-color: transparent #2c3e50 transparent transparent;
+        }
         @media (max-width: 768px) {
             .details-grid {
                 grid-template-columns: 1fr;
@@ -465,6 +479,9 @@
             }
             .timeline-container.left::after, .timeline-container.right::after {
                 left: 15px;
+            }
+            .timeline::after {
+                left: 75px;
             }
         }
     </style>
