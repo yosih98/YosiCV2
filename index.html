@@ -23,6 +23,8 @@
             --footer-text: #fff;
             --footer-link: #fff;
             --footer-link-hover: #1abc9c;
+            --link-color: #3498db;
+            --link-hover-color: #2980b9;
         }
 
         [data-theme="night"] {
@@ -41,6 +43,8 @@
             --footer-text: #e0e0e0;
             --footer-link: #e0e0e0;
             --footer-link-hover: #3c3c3c;
+            --link-color: #76c7ff; /* Lighter blue for better contrast in night mode */
+            --link-hover-color: #5baee1;
         }
 
         body {
@@ -51,6 +55,14 @@
             color: var(--text-color);
             overflow-x: hidden;
             scroll-behavior: smooth;
+        }
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: var(--link-hover-color);
         }
         header {
             background: var(--header-bg);
