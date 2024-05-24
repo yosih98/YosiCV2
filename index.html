@@ -43,7 +43,7 @@
             --footer-text: #e0e0e0;
             --footer-link: #e0e0e0;
             --footer-link-hover: #3c3c3c;
-            --link-color: #76c7ff; /* Lighter blue for better contrast in night mode */
+            --link-color: #76c7ff;
             --link-hover-color: #5baee1;
         }
 
@@ -353,33 +353,41 @@
             color: #fff;
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            text-align: center;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 24px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .floating-button:hover {
             background-color: #16a085;
+            transform: scale(1.1);
         }
         .theme-toggle {
             position: fixed;
-            bottom: 80px;
+            bottom: 90px;
             right: 20px;
             background-color: #f39c12;
             color: white;
             border: none;
-            padding: 15px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .theme-toggle:hover {
             background-color: #e67e22;
+            transform: scale(1.1);
         }
     </style>
 </head>
