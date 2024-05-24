@@ -6,35 +6,68 @@
     <title>Yosi H.S Alsafadi - GIS & RS スペシャリスト</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
+        :root {
+            --bg-color: #f0f0f5;
+            --text-color: #333;
+            --header-bg: #2c3e50;
+            --header-text: #fff;
+            --nav-bg: #34495e;
+            --nav-text: #fff;
+            --nav-hover-bg: #1abc9c;
+            --nav-hover-text: #fff;
+            --container-bg: #fff;
+            --section-title-color: #2c3e50;
+            --details-bg: #f4f4f9;
+            --footer-bg: #2c3e50;
+            --footer-text: #fff;
+            --footer-link: #fff;
+            --footer-link-hover: #1abc9c;
+        }
+
+        [data-theme="night"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #1f1f1f;
+            --header-text: #e0e0e0;
+            --nav-bg: #2c2c2c;
+            --nav-text: #e0e0e0;
+            --nav-hover-bg: #3c3c3c;
+            --nav-hover-text: #e0e0e0;
+            --container-bg: #1f1f1f;
+            --section-title-color: #e0e0e0;
+            --details-bg: #2c2c2c;
+            --footer-bg: #1f1f1f;
+            --footer-text: #e0e0e0;
+            --footer-link: #e0e0e0;
+            --footer-link-hover: #3c3c3c;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f5;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             overflow-x: hidden;
             scroll-behavior: smooth;
-            transition: background-color 0.3s, color 0.3s;
         }
         header {
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
-            color: #fff;
+            background: var(--header-bg);
+            color: var(--header-text);
             padding: 20px 0;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2em;
         }
         header p {
-            font-size: 1.2em;
+            font-size: 1em;
         }
         nav {
-            background: #34495e;
+            background: var(--nav-bg);
             padding: 10px 0;
             position: sticky;
             top: 0;
@@ -45,7 +78,7 @@
             transition: background 0.3s;
         }
         nav a {
-            color: #fff;
+            color: var(--nav-text);
             text-decoration: none;
             margin: 0 10px;
             padding: 8px 15px;
@@ -53,17 +86,16 @@
             transition: background 0.3s, color 0.3s;
         }
         nav a:hover {
-            background: #1abc9c;
-            color: #fff;
+            background: var(--nav-hover-bg);
+            color: var(--nav-hover-text);
         }
         .container {
             max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
-            background: #fff;
+            background: var(--container-bg);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            transition: background-color 0.3s, color 0.3s;
         }
         .profile {
             display: flex;
@@ -73,25 +105,23 @@
         }
         .profile img {
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            border: 4px solid #2c3e50;
+            width: 120px;
+            height: 120px;
         }
         .profile h2 {
             margin: 10px 0 0;
-            font-size: 1.8em;
-            color: #2c3e50;
+            font-size: 1.5em;
         }
         .profile p {
             margin: 5px 0 0;
-            font-size: 1.2em;
+            font-size: 1em;
         }
         .personal-details {
             text-align: center;
             margin-top: 20px;
         }
         .personal-details p {
-            font-size: 1.1em;
+            font-size: 1em;
             margin: 5px 0;
         }
         .section {
@@ -100,8 +130,8 @@
         .section h2 {
             margin-bottom: 20px;
             text-align: center;
-            font-size: 2em;
-            color: #2c3e50;
+            font-size: 1.8em;
+            color: var(--section-title-color);
         }
         .details-grid {
             display: grid;
@@ -109,21 +139,17 @@
             gap: 20px;
         }
         .details-grid div {
-            background: #f4f4f9;
+            background: var(--details-bg);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .details-grid div:hover {
-            transform: translateY(-10px);
         }
         .details-grid h3 {
-            font-size: 1.4em;
+            font-size: 1.2em;
             text-align: left;
         }
         .details-grid p, .details-grid ul {
-            font-size: 1.1em;
+            font-size: 1em;
             text-align: left;
             list-style-type: none;
             padding: 0;
@@ -142,7 +168,7 @@
             justify-content: center;
             font-size: 1.2em;
             margin: 10px;
-            background: #f4f4f9;
+            background: var(--details-bg);
             padding: 10px 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -154,69 +180,69 @@
             margin-right: 10px;
             font-size: 1.2em;
         }
+        .shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .shape {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(52, 152, 219, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        .shape1 {
+            top: -50px;
+            left: -50px;
+        }
+        .shape2 {
+            top: 150px;
+            left: 70%;
+        }
+        .shape3 {
+            top: 70%;
+            left: 50%;
+        }
+        .shape4 {
+            top: 85%;
+            left: 10%;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
         footer {
             text-align: center;
             padding: 20px 0;
-            background: #2c3e50;
-            color: #fff;
+            background: var(--footer-bg);
+            color: var(--footer-text);
             margin-top: 40px;
-            transition: background-color 0.3s, color 0.3s;
         }
         footer a {
-            color: #fff;
+            color: var(--footer-link);
             margin: 0 10px;
             text-decoration: none;
             font-size: 1.2em;
             transition: color 0.3s;
         }
         footer a:hover {
-            color: #1abc9c;
+            color: var(--footer-link-hover);
         }
         #map {
             height: 400px;
             width: 100%;
             margin-top: 20px;
-        }
-        .dark-mode {
-            background-color: #2c3e50;
-            color: #fff;
-        }
-        .dark-mode nav {
-            background: #1abc9c;
-        }
-        .dark-mode .container {
-            background: #34495e;
-        }
-        .dark-mode .details-grid div {
-            background: #2c3e50;
-        }
-        .dark-mode footer {
-            background: #1abc9c;
-        }
-        .dark-mode .profile img {
-            border-color: #1abc9c;
-        }
-        .dark-mode .details-grid div {
-            background: #34495e;
-            color: #fff;
-        }
-        .dark-mode .details-grid p,
-        .dark-mode .details-grid ul {
-            color: #fff;
-        }
-        .dark-mode .timeline-content {
-            background-color: #2c3e50;
-            color: #fff;
-        }
-        .dark-mode .timeline-container::after {
-            background-color: #1abc9c;
-            border-color: #2c3e50;
-        }
-        .dark-mode .timeline-container.left::before {
-            border-color: transparent transparent transparent #2c3e50;
-        }
-        .dark-mode .timeline-container.right::before {
-            border-color: transparent #2c3e50 transparent transparent;
         }
         @media (max-width: 768px) {
             .details-grid {
@@ -244,7 +270,7 @@
                 top: 0;
                 left: 0;
                 right: 0;
-                background: #34495e;
+                background: var(--nav-bg);
                 display: flex;
                 flex-direction: column;
                 transform: translateY(-100%);
@@ -264,8 +290,8 @@
                 position: fixed;
                 top: 10px;
                 right: 10px;
-                background: #34495e;
-                color: #fff;
+                background: var(--nav-bg);
+                color: var(--nav-text);
                 padding: 10px;
                 border-radius: 5px;
                 cursor: pointer;
@@ -287,7 +313,7 @@
             padding: 5px 0;
             position: absolute;
             z-index: 1;
-            bottom: 125%;
+            bottom: 125%; /* Position the tooltip above the text */
             left: 50%;
             margin-left: -60px;
             opacity: 0;
@@ -296,7 +322,7 @@
         .tooltip .tooltiptext::after {
             content: "";
             position: absolute;
-            top: 100%;
+            top: 100%; /* At the bottom of the tooltip */
             left: 50%;
             margin-left: -5px;
             border-width: 5px;
@@ -326,129 +352,29 @@
         .floating-button:hover {
             background-color: #16a085;
         }
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: #1abc9c;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        .timeline-container {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-        .timeline-container.left {
-            left: 0;
-        }
-        .timeline-container.right {
-            left: 50%;
-        }
-        .timeline-container.left::after, .timeline-container.right::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: #1abc9c;
+        .theme-toggle {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 15px;
             border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-            border: 4px solid white;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background-color 0.3s;
         }
-        .timeline-container.left::after {
-            left: -17.5px;
-        }
-        .timeline-container.right::after {
-            right: -17.5px;
-        }
-        .timeline-container.left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            right: 30px;
-            width: 0;
-            z-index: 1;
-            border: medium solid white;
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent white;
-        }
-        .timeline-container.right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            left: 30px;
-            width: 0;
-            z-index: 1;
-            border: medium solid white;
-            border-width: 10px 10px 10px 0;
-            border-color: transparent white transparent transparent;
-        }
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .timeline-content h3 {
-            margin-top: 0;
-            font-size: 1.4em;
-        }
-        .timeline-content p {
-            margin: 0;
-        }
-        .dark-mode .timeline-content {
-            background-color: #2c3e50;
-            color: #fff;
-        }
-        .dark-mode .timeline-container::after {
-            background-color: #1abc9c;
-            border-color: #2c3e50;
-        }
-        .dark-mode .timeline-container.left::before {
-            border-color: transparent transparent transparent #2c3e50;
-        }
-        .dark-mode .timeline-container.right::before {
-            border-color: transparent #2c3e50 transparent transparent;
-        }
-        @media screen and (max-width: 600px) {
-            .timeline-container.left, .timeline-container.right {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            .timeline-container.left::before, .timeline-container.right::before {
-                left: 60px;
-                border: medium solid white;
-                border-width: 10px 10px 10px 0;
-                border-color: transparent white transparent transparent;
-            }
-            .timeline-container.left::after, .timeline-container.right::after {
-                left: 15px;
-            }
-            .timeline::after {
-                left: 75px;
-            }
+        .theme-toggle:hover {
+            background-color: #e67e22;
         }
     </style>
 </head>
-<body>
+<body data-theme="day">
     <header>
         <h1>Yosi H.S Alsafadi</h1>
         <p>GIS & RS スペシャリスト | データアナリスト | デジタル通貨エンスージアスト</p>
-        <button onclick="toggleDarkMode()">Dark Mode</button>
     </header>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav>
@@ -456,7 +382,7 @@
         <a href="#education">学歴</a>
         <a href="#experience">職歴</a>
         <a href="#skills">スキル</a>
-        <a href="#additional-notes">追加の注記</a>
+        <a href="#additional-notes">追加ポイント</a>
         <a href="#languages">言語</a>
         <a href="#hobbies">趣味</a>
         <a href="#contact">連絡先</a>
@@ -476,80 +402,60 @@
                 <p><strong>居住情報:</strong> パレスチナ出身、現在マレーシアに居住、家族はベルギーに居住。</p>
             </div>
         </section>
-        <section id="education" class="section" data-aos="fade-up">
+        <section id="education" class="section">
             <h2>学歴</h2>
-            <div class="timeline">
-                <div class="timeline-container left" data-aos="fade-right">
-                    <div class="timeline-content">
-                        <h3>GISおよびRSの博士課程</h3>
-                        <p>USIM (2022年3月 – 現在)</p>
-                    </div>
+            <div class="details-grid">
+                <div>
+                    <h3>コンピュータサイエンスおよび人工知能を含むGISおよびRSの博士課程</h3>
+                    <p>USIM (2022年3月 – 現在)</p>
                 </div>
-                <div class="timeline-container right" data-aos="fade-left">
-                    <div class="timeline-content">
-                        <h3>GISおよびRSの修士</h3>
-                        <p>IUG (2019年9月 – 2021年9月)</p>
-                    </div>
+                <div>
+                    <h3>GISおよびRSの修士</h3>
+                    <p>IUG (2019年9月 – 2021年9月)</p>
                 </div>
-                <div class="timeline-container left" data-aos="fade-right">
-                    <div class="timeline-content">
-                        <h3>GISおよびRSの学士</h3>
-                        <p>IUG (2015年9月 – 2019年3月)</p>
-                    </div>
+                <div>
+                    <h3>GISおよびRSの学士</h3>
+                    <p>IUG (2015年9月 – 2019年3月)</p>
                 </div>
-                <div class="timeline-container right" data-aos="fade-left">
-                    <div class="timeline-content">
-                        <h3>追加の学習</h3>
-                        <p>トレーニングコース中にデジタル通貨を副専攻として学ぶ</p>
-                    </div>
+                <div>
+                    <h3>追加の学習</h3>
+                    <p>トレーニングコース中にデジタル通貨を副専攻として学ぶ</p>
                 </div>
             </div>
         </section>
-        <section id="experience" class="section" data-aos="fade-up">
+        <section id="experience" class="section">
             <h2>職歴</h2>
-            <div class="timeline">
-                <div class="timeline-container left" data-aos="fade-right">
-                    <div class="timeline-content">
-                        <h3>ティーチングアシスタント</h3>
-                        <p>GISおよびRS学部、IUG (2019年3月 – 2020年3月)</p>
-                    </div>
+            <div class="details-grid">
+                <div>
+                    <h3>ティーチングアシスタント</h3>
+                    <p>GISおよびRS学部、IUG (2019年3月 – 2020年3月)</p>
                 </div>
-                <div class="timeline-container right" data-aos="fade-left">
-                    <div class="timeline-content">
-                        <h3>講師</h3>
-                        <p>GISおよびRS学部、IUG (2020年4月 – 2022年5月)</p>
-                    </div>
+                <div>
+                    <h3>講師</h3>
+                    <p>GISおよびRS学部、IUG (2020年4月 – 2022年5月)</p>
                 </div>
-                <div class="timeline-container left" data-aos="fade-right">
-                    <div class="timeline-content">
-                        <h3>GISおよびRSアナリスト</h3>
-                        <p>地方自治省 (2019年1月 – 2022年5月)</p>
-                    </div>
+                <div>
+                    <h3>GISおよびRSアナリスト</h3>
+                    <p>地方自治省 (2019年1月 – 2022年5月)</p>
                 </div>
-                <div class="timeline-container right" data-aos="fade-left">
-                    <div class="timeline-content">
-                        <h3>ドローンおよび衛星画像のアナリストおよびプロセッサー</h3>
-                        <p>Sky Pixel社 (2018年1月 – 2022年5月)</p>
-                    </div>
+                <div>
+                    <h3>ドローンおよび衛星画像のアナリストおよびプロセッサー</h3>
+                    <p>Sky Pixel社 (2018年1月 – 2022年5月)</p>
                 </div>
-                <div class="timeline-container left" data-aos="fade-right">
-                    <div class="timeline-content">
-                        <h3>データアナリストおよび管理者</h3>
-                        <p>民間セクター (2022年3月 – 現在)</p>
-                    </div>
+                <div>
+                    <h3>データアナリストおよび管理者</h3>
+                    <p>民間セクター (2022年3月 – 現在)</p>
                 </div>
-                <div class="timeline-container right" data-aos="fade-left">
-                    <div class="timeline-content">
-                        <h3>デジタル通貨トレーダーおよびマネージャー</h3>
-                        <p>独立 (2022年3月 – 現在)</p>
-                    </div>
+                <div>
+                    <h3>デジタル通貨トレーダーおよびマネージャー</h3>
+                    <p>独立 (2022年3月 – 現在)</p>
                 </div>
             </div>
         </section>
-        <section id="skills" class="section" data-aos="fade-up">
+        <section id="skills" class="section">
             <h2>スキル</h2>
             <div class="details-grid">
-                <div data-aos="flip-left">
+                <div>
                     <h3>技術スキル</h3>
                     <ul>
                         <li>GISおよびRSプログラムの使用</li>
@@ -562,7 +468,7 @@
                         <li>データの収集および分析</li>
                     </ul>
                 </div>
-                <div data-aos="flip-right">
+                <div>
                     <h3>個人のスキル</h3>
                     <ul>
                         <li>分析および意思決定能力</li>
@@ -574,22 +480,22 @@
                 </div>
             </div>
         </section>
-        <section id="additional-notes" class="section" data-aos="fade-up">
-            <h2>追加の注記</h2>
+        <section id="additional-notes" class="section">
+            <h2>追加ポイント</h2>
             <div class="details-grid">
                 <div>
                     <p>新しいことを学ぶことに熱心で、迅速に学ぶ</p>
                     <p>学習と成長の機会を提供するあらゆる分野で働く意欲がある</p>
                     <p>日本語を学ぶことに興味がある</p>
                     <p>デジタル通貨の取引における実践的な経験</p>
-                    <p>給与よりも新しい環境での経験と学習を優先し、日本の生活水準に応じた給与を求める</p>
-                    <p>高度に適応可能であり、グラフィックデザイン、デジタルマーケティング、データ管理、プロジェクト管理などの主な専門分野以外の分野のさまざまな仕事の要件に必要な新しいスキルを迅速に習得できる</p>
-                    <p>強力な分析スキル、細部への注意、独立しておよびチーム内で働く能力で知られている</p>
-                    <p>自身の分野および関連分野の進歩の最前線に立ち続けるために、継続的な個人および専門的な発展にコミットしている</p>
+                    <p>給与よりも新しい環境での経験と学習を優先し、日本の生活水準に応じた給与を希望</p>
+                    <p>新たな分野に対しても、繊細かつ高度に適応可能であり、グラフィックデザイン、デジタルマーケティング、データ管理、プロジェクト管理などの主な専門分野以外のさまざまな仕事の要件に必要な新しいスキルを迅速に習得できる</p>
+                    <p>強力な分析スキル、細部への注意、個人およびチーム内で働く能力がある</p>
+                    <p>自身の分野および関連分野の進歩の最前線に立ち続けるために、継続的および専門的な発展にコミットしている</p>
                 </div>
             </div>
         </section>
-        <section id="languages" class="section" data-aos="fade-up">
+        <section id="languages" class="section">
             <h2>言語</h2>
             <div class="languages">
                 <div>
@@ -599,7 +505,7 @@
                 </div>
             </div>
         </section>
-        <section id="hobbies" class="section" data-aos="fade-up">
+        <section id="hobbies" class="section">
             <h2>趣味</h2>
             <div class="hobbies">
                 <div><p><i class="fas fa-desktop"></i> コンピュータ</p></div>
@@ -614,32 +520,15 @@
                 <div><p><i class="fas fa-futbol"></i> サッカー</p></div>
             </div>
         </section>
-        <section id="contact" class="section" data-aos="fade-up">
+        <section id="contact" class="section">
             <h2>連絡先</h2>
-            <p>私に連絡を取りたい場合は、以下の方法でご連絡ください:</p>
+            <p>私にご連絡いただく際は、以下の方法をご利用ください。</p>
             <p>Email: <a href="mailto:yosih1998@gmail.com">yosih1998@gmail.com</a></p>
             <p>WhatsApp: <a href="https://wa.me/60173573380" target="_blank">+60173573380</a></p>
             <p>Instagram: <a href="https://www.instagram.com/yosi.h_?igshid=czJxeWl0NmpsZDZj&utm_source=qr" target="_blank">@yosi.h_</a></p>
             <p>Line: <a href="https://line.me/ti/p/9_Rotdq0GH" target="_blank">Add me on Line</a></p>
-            <form>
-                <div>
-                    <label for="name">名前:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div>
-                    <label for="email">メール:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div>
-                    <label for="message">メッセージ:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                </div>
-                <div>
-                    <button type="submit">送信</button>
-                </div>
-            </form>
         </section>
-        <div id="map" data-aos="fade-up"></div>
+        <div id="map"></div>
     </div>
     <footer>
         <p>&copy; 2024 Yosi H.S Alsafadi. All Rights Reserved.</p>
@@ -657,20 +546,16 @@
         <div class="shape shape4"></div>
     </div>
     <button class="floating-button" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+    <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        AOS.init();
-
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
         function toggleMenu() {
             document.querySelector('nav').classList.toggle('active');
-        }
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
         }
 
         // Initialize the map
@@ -707,6 +592,12 @@
         var marker = L.marker([3.1390, 101.6869]).addTo(map)
             .bindPopup('Yosi H.S Alsafadi is here!')
             .openPopup();
+
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            body.setAttribute('data-theme', currentTheme === 'night' ? 'day' : 'night');
+        }
     </script>
 </body>
 </html>
