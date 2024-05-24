@@ -347,7 +347,7 @@
         }
         .floating-button {
             position: fixed;
-            top: 20px;
+            bottom: 20px;
             right: 20px;
             background-color: #1abc9c;
             color: #fff;
@@ -367,36 +367,26 @@
             background-color: #16a085;
             transform: scale(1.1);
         }
-        .menu-container {
+        .theme-toggle {
             position: fixed;
-            top: 20px;
+            bottom: 75px;
             right: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-        }
-        .menu-container .theme-toggle {
             background-color: #f39c12;
             color: white;
-        }
-        .menu-container .scroll-button {
-            background-color: #1abc9c;
-            color: white;
-        }
-        .menu-container button {
+            border: none;
             width: 45px;
             height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: none;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
             transition: background-color 0.3s, transform 0.3s;
         }
-        .menu-container button:hover {
+        .theme-toggle:hover {
+            background-color: #e67e22;
             transform: scale(1.1);
         }
     </style>
@@ -575,12 +565,12 @@
         <div class="shape shape3"></div>
         <div class="shape shape4"></div>
     </div>
-    <div class="menu-container">
-        <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
-        <button class="scroll-button" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
-    </div>
+    <button class="floating-button" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+    <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script>
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -630,6 +620,52 @@
             const currentTheme = body.getAttribute('data-theme');
             body.setAttribute('data-theme', currentTheme === 'night' ? 'day' : 'night');
         }
+
+        // Typed.js for typing effect in header
+        var typed = new Typed('header p', {
+            strings: ["GIS & RS スペシャリスト", "データアナリスト", "デジタル通貨エンスージアスト"],
+            typeSpeed: 50,
+            backSpeed: 25,
+            loop: true
+        });
+
+        // Chart.js example chart
+        var ctx = document.createElement('canvas');
+        ctx.id = 'myChart';
+        document.querySelector('.container').appendChild(ctx);
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: '# of Projects',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>
